@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">LearnHub</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:underline">Home</a></li>
+                    <li><a href="#" class="hover:underline">Courses</a></li>
+                    <li><a href="#" class="hover:underline">Live Classes</a></li>
+                    <li><a href="#" class="hover:underline">Dashboard</a></li>
+                    <li><a href="#" class="hover:underline">Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="container mx-auto p-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Upcoming Reminders -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Upcoming Reminders</h2>
+                <div class="space-y-4">
+                    <div class="p-4 border border-blue-200 rounded-lg">
+                        <h3 class="font-medium">Assignment Due: Math Homework</h3>
+                        <p class="text-gray-600">Due: 2025-04-20</p>
+                        <button class="mt-2 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Set Reminder</button>
+                    </div>
+                    <div class="p-4 border border-blue-200 rounded-lg">
+                        <h3 class="font-medium">Live Class: Science Lecture</h3>
+                        <p class="text-gray-600">Time: 2025-04-18 10:00 AM</p>
+                        <button class="mt-2 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Set Reminder</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assignments & Grades -->
+            <div class="bg-white p-6 rounded-lg shadow-md md:col-span-2">
+                <h2 class="text-xl font-semibold mb-4">Assignments & Grades</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-4 border">Assignment</th>
+                                <th class="py-2 px-4 border">Due Date</th>
+                                <th class="py-2 px-4 border">Status</th>
+                                <th class="py-2 px-4 border">Grade</th>
+                                <th class="py-2 px-4 border">Feedback</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border">Math Homework</td>
+                                <td class="py-2 px-4 border">2025-04-20</td>
+                                <td class="py-2 px-4 border">Pending</td>
+                                <td class="py-2 px-4 border">-</td>
+                                <td class="py-2 px-4 border">-</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border">Science Project</td>
+                                <td class="py-2 px-4 border">2025-04-15</td>
+                                <td class="py-2 px-4 border">Submitted</td>
+                                <td class="py-2 px-4 border">A</td>
+                                <td class="py-2 px-4 border">Great work!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-6">
+                    <h3 class="font-medium mb-2">Upload New Assignment</h3>
+                    <div class="flex items-center space-x-4">
+                        <input type="file" class="border p-2 rounded">
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Upload</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 LearnHub. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
