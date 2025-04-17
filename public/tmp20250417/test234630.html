@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header with Navigation -->
+    <header class="bg-blue-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">LearnHub</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:underline">Home</a></li>
+                    <li><a href="#" class="hover:underline">Courses</a></li>
+                    <li><a href="#" class="hover:underline">Classroom</a></li>
+                    <li><a href="#" class="hover:underline">Assignments</a></li>
+                    <li><a href="#" class="hover:underline">Discussion</a></li>
+                    <li><a href="#" class="hover:underline">Profile</a></li>
+                    <li>
+                        <select class="bg-blue-600 text-white border-none focus:outline-none">
+                            <option>English</option>
+                            <option>Spanish</option>
+                            <option>French</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Dashboard Overview -->
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">My Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium mb-2">Active Courses</h3>
+                    <p class="text-gray-600">3 courses in progress</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium mb-2">Upcoming Assignments</h3>
+                    <p class="text-gray-600">2 assignments due soon</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium mb-2">Recent Feedback</h3>
+                    <p class="text-gray-600">View your latest grades</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assignments and Grades Section -->
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Assignments & Grades</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium mb-2">Submit Assignment</h3>
+                    <div class="flex items-center space-x-4">
+                        <input type="file" class="border p-2 rounded">
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Upload</button>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-2">Grades</h3>
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="p-3 text-left">Assignment</th>
+                                <th class="p-3 text-left">Grade</th>
+                                <th class="p-3 text-left">Feedback</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-3">Project 1</td>
+                                <td class="p-3">A</td>
+                                <td class="p-3">Excellent work!</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-3">Quiz 2</td>
+                                <td class="p-3">B+</td>
+                                <td class="p-3">Good effort, but needs more detail.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course List -->
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">My Courses</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="https://source.unsplash.com/random/300x200/?course" alt="Course Image" class="w-full h-40 object-cover rounded mb-4">
+                    <h3 class="text-lg font-medium mb-2">Introduction to Programming</h3>
+                    <p class="text-gray-600 mb-4">Learn the basics of programming with Python.</p>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="https://source.unsplash.com/random/300x200/?math" alt="Course Image" class="w-full h-40 object-cover rounded mb-4">
+                    <h3 class="text-lg font-medium mb-2">Advanced Mathematics</h3>
+                    <p class="text-gray-600 mb-4">Dive deep into calculus and linear algebra.</p>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="https://source.unsplash.com/random/300x200/?design" alt="Course Image" class="w-full h-40 object-cover rounded mb-4">
+                    <h3 class="text-lg font-medium mb-2">UI/UX Design</h3>
+                    <p class="text-gray-600 mb-4">Master the art of user interface design.</p>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 LearnHub. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
