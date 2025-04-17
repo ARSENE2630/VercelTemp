@@ -5,7 +5,7 @@
       "src": "/.*",
       "dest": "/public/index.html",
       "headers": {
-        "Cache-Control": "public, max-age=3600",
+        "Cache-Control": "no-cache",
         "X-Frame-Options": "DENY",
         "Content-Security-Policy": "default-src 'self'"
       }
