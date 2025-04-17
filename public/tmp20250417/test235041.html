@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>协作通讯功能</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen">
+        <!-- 主内容区 -->
+        <div class="flex-1 p-6 overflow-y-auto">
+            <!-- 任务详情 -->
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-xl font-bold mb-4">任务详情：设计登录页面</h2>
+                <p class="text-gray-700 mb-4">完成登录页面的UI设计和前端开发。</p>
+                <div class="border-t pt-4">
+                    <h3 class="font-semibold mb-2">任务评论</h3>
+                    <!-- 评论列表 -->
+                    <div class="space-y-4 mb-4">
+                        <div class="flex items-start">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" alt="User" class="w-8 h-8 rounded-full mr-3">
+                            <div>
+                                <p class="font-semibold">张三</p>
+                                <p class="text-gray-600">这个设计需要调整一下按钮颜色。</p>
+                                <p class="text-xs text-gray-400">2025-04-17 10:30</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=100" alt="User" class="w-8 h-8 rounded-full mr-3">
+                            <div>
+                                <p class="font-semibold">李四</p>
+                                <p class="text-gray-600">@张三 已调整，请查看最新版本。</p>
+                                <p class="text-xs text-gray-400">2025-04-17 11:15</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 评论输入框 -->
+                    <div class="flex items-start">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" alt="User" class="w-8 h-8 rounded-full mr-3">
+                        <div class="flex-1">
+                            <textarea placeholder="发表评论..." class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">发送</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 团队聊天窗口 -->
+        <div class="w-80 bg-white border-l shadow-lg flex flex-col">
+            <div class="p-4 border-b">
+                <h3 class="font-bold">团队聊天</h3>
+            </div>
+            <!-- 成员列表 -->
+            <div class="p-4 border-b">
+                <div class="flex items-center mb-2">
+                    <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                    <span class="font-medium">在线成员 (3)</span>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" alt="User" class="w-6 h-6 rounded-full mr-2">
+                        <span>张三</span>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=100" alt="User" class="w-6 h-6 rounded-full mr-2">
+                        <span>李四</span>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=100" alt="User" class="w-6 h-6 rounded-full mr-2">
+                        <span>王五</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 聊天内容 -->
+            <div class="flex-1 p-4 overflow-y-auto">
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" alt="User" class="w-8 h-8 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">张三</p>
+                            <p class="text-gray-600">大家早上好！今天的任务都清楚了吗？</p>
+                            <p class="text-xs text-gray-400">10:00 AM</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=100" alt="User" class="w-8 h-8 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold">李四</p>
+                            <p class="text-gray-600">清楚了，我正在处理登录页面的设计。</p>
+                            <p class="text-xs text-gray-400">10:05 AM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 消息输入框 -->
+            <div class="p-4 border-t">
+                <textarea placeholder="输入消息..." class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">发送</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
