@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字与花朵颜色</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
+        <h1 class="text-3xl font-bold text-center text-purple-700 mb-6">数字与花朵颜色</h1>
+        
+        <div class="mb-6">
+            <label for="numberInput" class="block text-gray-700 mb-2">请输入一个数字（0-9）：</label>
+            <input type="number" id="numberInput" min="0" max="9" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+        </div>
+
+        <button onclick="showFlower()" class="w-full bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 transition duration-200 mb-6">显示花朵</button>
+
+        <div id="flowerResult" class="text-center hidden">
+            <p class="text-gray-700 mb-4">数字 <span id="displayNumber" class="font-bold text-purple-700">0</span> 对应的花朵颜色是：</p>
+            <div id="flowerIcon" class="text-6xl mb-4">
+                <!-- 花朵图标将通过JavaScript动态生成 -->
+            </div>
+            <p id="colorName" class="text-xl font-semibold">红色</p>
+        </div>
+    </div>
+
+    <script>
+        const colorMap = {
+            0: { color: "red", name: "红色", icon: "fa-rose" },
+            1: { color: "blue", name: "蓝色", icon: "fa-tulip" },
+            2: { color: "yellow", name: "黄色", icon: "fa-sunflower" },
+            3: { color: "green", name: "绿色", icon: "fa-leaf" },
+            4: { color: "purple", name: "紫色", icon: "fa-lavender" },
+            5: { color: "pink", name: "粉色", icon: "fa-cherry-blossom" },
+            6: { color: "orange", name: "橙色", icon: "fa-marigold" },
+            7: { color: "white", name: "白色", icon: "fa-daisy" },
+            8: { color: "black", name: "黑色", icon: "fa-black-rose" },
+            9: { color: "indigo", name: "靛蓝色", icon: "fa-hydrangea" }
+        };
+
+        function showFlower() {
+            const input = document.getElementById("numberInput");
+            const number = parseInt(input.value);
+            const resultDiv = document.getElementById("flowerResult");
+            const displayNumber = document.getElementById("displayNumber");
+            const flowerIcon = document.getElementById("flowerIcon");
+            const colorName = document.getElementById("colorName");
+
+            if (isNaN(number) || number < 0 || number > 9) {
+                alert("请输入一个有效的数字（0-9）！");
+                return;
+            }
+
+            const colorData = colorMap[number];
+            displayNumber.textContent = number;
+            flowerIcon.innerHTML = `<i class="fas ${colorData.icon}" style="color: ${colorData.color};"></i>`;
+            colorName.textContent = colorData.name;
+            colorName.style.color = colorData.color;
+
+            resultDiv.classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
