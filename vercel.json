@@ -11,8 +11,8 @@
       }
     },
     {
-            "src": "/tmp/(.*)/(.*)\\.html",
-            "dest": "/tmp/$1/$2.html"
+            "src": "/public/(.*)/(.*)\\.html",
+            "dest": "/public/$1/$2.html"
     }
   ],
   "builds": [
