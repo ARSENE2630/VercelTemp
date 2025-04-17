@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技感数据可视化大屏</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0f172a;
+            color: white;
+            overflow: hidden;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto 1fr 1fr;
+            gap: 16px;
+            padding: 16px;
+            height: 100vh;
+        }
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 16px;
+            background: linear-gradient(90deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 8px;
+            border: 1px solid #334155;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        .card {
+            background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid #334155;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        .chart {
+            width: 100%;
+            height: 100%;
+        }
+        .glow-text {
+            text-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- 标题栏 -->
+        <div class="header">
+            <h1 class="text-3xl font-bold glow-text">化工生产可视化大屏</h1>
+            <div class="flex justify-center space-x-4 mt-4">
+                <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg glow-text">实时数据</button>
+                <button class="bg-gray-700 hover:bg-gray-800 px-4 py-2 rounded-lg">日数据</button>
+                <button class="bg-gray-700 hover:bg-gray-800 px-4 py-2 rounded-lg">周数据</button>
+                <button class="bg-gray-700 hover:bg-gray-800 px-4 py-2 rounded-lg">月数据</button>
+            </div>
+        </div>
+
+        <!-- 生产数据 -->
+        <div class="card">
+            <h2 class="text-xl font-semibold mb-4 glow-text">生产数据</h2>
+            <div id="productionChart" class="chart"></div>
+        </div>
+
+        <!-- 能耗数据 -->
+        <div class="card">
+            <h2 class="text-xl font-semibold mb-4 glow-text">能耗数据</h2>
+            <div id="energyChart" class="chart"></div>
+        </div>
+
+        <!-- 设备状态 -->
+        <div class="card">
+            <h2 class="text-xl font-semibold mb-4 glow-text">设备状态</h2>
+            <div id="deviceChart" class="chart"></div>
+        </div>
+
+        <!-- 安全预警 -->
+        <div class="card">
+            <h2 class="text-xl font-semibold mb-4 glow-text">安全预警</h2>
+            <div id="alertChart" class="chart"></div>
+        </div>
+
+        <!-- KPI指标 -->
+        <div class="card">
+            <h2 class="text-xl font-semibold mb-4 glow-text">KPI指标</h2>
+            <div id="kpiChart" class="chart"></div>
+        </div>
+
+        <!-- 数据分析 -->
+        <div class="card">
+            <h2 class="text-xl font-semibold mb-4 glow-text">数据分析</h2>
+            <div id="analysisChart" class="chart"></div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化图表
+        const productionChart = echarts.init(document.getElementById('productionChart'));
+        const energyChart = echarts.init(document.getElementById('energyChart'));
+        const deviceChart = echarts.init(document.getElementById('deviceChart'));
+        const alertChart = echarts.init(document.getElementById('alertChart'));
+        const kpiChart = echarts.init(document.getElementById('kpiChart'));
+        const analysisChart = echarts.init(document.getElementById('analysisChart'));
+
+        // 生产数据图表配置
+        productionChart.setOption({
+            tooltip: {},
+            xAxis: {
+                type: 'category',
+                data: ['生产线1', '生产线2', '生产线3', '生产线4'],
+                axisLine: { lineStyle: { color: '#3b82f6' } },
+                axisLabel: { color: '#e2e8f0' }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: { lineStyle: { color: '#3b82f6' } },
+                axisLabel: { color: '#e2e8f0' }
+            },
+            series: [{
+                data: [120, 200, 150, 80],
+                type: 'bar',
+                itemStyle: { color: '#3b82f6' },
+                barWidth: '40%'
+            }],
+            grid: { backgroundColor: 'rgba(30, 41, 59, 0.5)' }
+        });
+
+        // 能耗数据图表配置
+        energyChart.setOption({
+            tooltip: {},
+            xAxis: {
+                type: 'category',
+                data: ['电力', '水', '天然气'],
+                axisLine: { lineStyle: { color: '#10b981' } },
+                axisLabel: { color: '#e2e8f0' }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: { lineStyle: { color: '#10b981' } },
+                axisLabel: { color: '#e2e8f0' }
+            },
+            series: [{
+                data: [300, 150, 200],
+                type: 'line',
+                itemStyle: { color: '#10b981' },
+                lineStyle: { width: 3 }
+            }],
+            grid: { backgroundColor: 'rgba(30, 41, 59, 0.5)' }
+        });
+
+        // 设备状态图表配置
+        deviceChart.setOption({
+            tooltip: {},
+            series: [{
+                type: 'pie',
+                data: [
+                    { value: 80, name: '运行中', itemStyle: { color: '#10b981' } },
+                    { value: 10, name: '停机', itemStyle: { color: '#ef4444' } },
+                    { value: 10, name: '维护中', itemStyle: { color: '#f59e0b' } }
+                ],
+                radius: ['40%', '70%'],
+                label: { color: '#e2e8f0' }
+            }],
+            backgroundColor: 'rgba(30, 41, 59, 0.5)'
+        });
+
+        // 安全预警图表配置
+        alertChart.setOption({
+            tooltip: {},
+            xAxis: {
+                type: 'category',
+                data: ['温度', '压力', '气体浓度'],
+                axisLine: { lineStyle: { color: '#ef4444' } },
+                axisLabel: { color: '#e2e8f0' }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: { lineStyle: { color: '#ef4444' } },
+                axisLabel: { color: '#e2e8f0' }
+            },
+            series: [{
+                data: [25, 40, 15],
+                type: 'bar',
+                itemStyle: { color: '#ef4444' },
+                barWidth: '40%'
+            }],
+            grid: { backgroundColor: 'rgba(30, 41, 59, 0.5)' }
+        });
+
+        // KPI指标图表配置
+        kpiChart.setOption({
+            tooltip: {},
+            radar: {
+                indicator: [
+                    { name: '生产效率', max: 100 },
+                    { name: '能耗比', max: 100 },
+                    { name: '安全评分', max: 100 }
+                ],
+                axisLine: { lineStyle: { color: '#8b5cf6' } },
+                splitLine: { lineStyle: { color: '#8b5cf6' } },
+                splitArea: { show: false }
+            },
+            series: [{
+                type: 'radar',
+                data: [{ value: [85, 70, 90], itemStyle: { color: '#8b5cf6' } }],
+                areaStyle: { color: 'rgba(139, 92, 246, 0.2)' }
+            }],
+            backgroundColor: 'rgba(30, 41, 59, 0.5)'
+        });
+
+        // 数据分析图表配置
+        analysisChart.setOption({
+            tooltip: {},
+            xAxis: {
+                type: 'category',
+                data: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                axisLine: { lineStyle: { color: '#f59e0b' } },
+                axisLabel: { color: '#e2e8f0' }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: { lineStyle: { color: '#f59e0b' } },
+                axisLabel: { color: '#e2e8f0' }
+            },
+            series: [{
+                data: [120, 132, 101, 134, 90, 160],
+                type: 'line',
+                itemStyle: { color: '#f59e0b' },
+                lineStyle: { width: 3 }
+            }],
+            grid: { backgroundColor: 'rgba(30, 41, 59, 0.5)' }
+        });
+    </script>
+</body>
+</html>
