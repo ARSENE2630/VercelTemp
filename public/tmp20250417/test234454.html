@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header with Navigation -->
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">LearnHub</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:underline">Home</a></li>
+                    <li><a href="#" class="hover:underline">Courses</a></li>
+                    <li><a href="#" class="hover:underline">Live Classes</a></li>
+                    <li><a href="#" class="hover:underline">Account</a></li>
+                    <li>
+                        <select class="bg-blue-500 text-white border-none rounded px-2 py-1">
+                            <option>English</option>
+                            <option>Spanish</option>
+                            <option>French</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 bg-blue-500 text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Start Learning Today</h2>
+            <p class="text-xl mb-8">Access thousands of courses and live classes from top instructors worldwide.</p>
+            <button class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">Browse Courses</button>
+        </div>
+    </section>
+
+    <!-- Featured Courses -->
+    <section class="py-12">
+        <div class="container mx-auto">
+            <h3 class="text-2xl font-bold mb-6">Featured Courses</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Course Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://source.unsplash.com/random/400x200/?education" alt="Course Image" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Introduction to Programming</h4>
+                        <p class="text-gray-600 mb-4">Learn the basics of programming with Python.</p>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://source.unsplash.com/random/400x200/?math" alt="Course Image" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Advanced Mathematics</h4>
+                        <p class="text-gray-600 mb-4">Master calculus and linear algebra.</p>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://source.unsplash.com/random/400x200/?science" alt="Course Image" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Data Science Fundamentals</h4>
+                        <p class="text-gray-600 mb-4">Explore data analysis and visualization.</p>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Classes Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto">
+            <h3 class="text-2xl font-bold mb-6">Upcoming Live Classes</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Live Class 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://source.unsplash.com/random/600x300/?lecture" alt="Live Class Image" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Web Development Workshop</h4>
+                        <p class="text-gray-600 mb-2">Join us for a live coding session.</p>
+                        <p class="text-blue-600 font-semibold">Tomorrow, 10:00 AM</p>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-4">Join Now</button>
+                    </div>
+                </div>
+
+                <!-- Live Class 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://source.unsplash.com/random/600x300/?classroom" alt="Live Class Image" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Machine Learning Seminar</h4>
+                        <p class="text-gray-600 mb-2">Learn about the latest trends in ML.</p>
+                        <p class="text-blue-600 font-semibold">Friday, 2:00 PM</p>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-4">Join Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white p-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 LearnHub. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
