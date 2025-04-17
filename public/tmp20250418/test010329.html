@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青少年AI学习平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?w=100" alt="Logo" class="w-10 h-10 rounded-full">
+                <span class="text-xl font-bold">AI少年营</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-blue-200">首页</a>
+                <a href="#" class="hover:text-blue-200">学习</a>
+                <a href="#" class="hover:text-blue-200">实验</a>
+                <a href="#" class="hover:text-blue-200">项目</a>
+                <a href="#" class="hover:text-blue-200">社区</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-lg">登录</button>
+                <button class="bg-white text-blue-600 hover:bg-gray-100 px-4 py-2 rounded-lg">注册</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16">
+        <div class="container mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">探索AI的奇妙世界</h1>
+            <p class="text-xl mb-8">通过实验和项目，轻松学习人工智能！</p>
+            <div class="flex justify-center space-x-4">
+                <button class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold">开始学习</button>
+                <button class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg font-semibold">观看视频</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能模块展示 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">我们的功能</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 学习模块 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=300" alt="学习" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">学习模块</h3>
+                    <p class="text-gray-600">通过图文、视频和互动动画学习AI基础知识。</p>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">了解更多</button>
+                </div>
+                <!-- 实验模块 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300" alt="实验" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">实验模块</h3>
+                    <p class="text-gray-600">动手完成预置实验或自定义实验，体验AI的魅力。</p>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">了解更多</button>
+                </div>
+                <!-- 项目模块 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300" alt="项目" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">项目模块</h3>
+                    <p class="text-gray-600">挑战AI项目，分享成果并获得导师点评。</p>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">了解更多</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 游戏化元素 -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">完成任务，赢取徽章！</h2>
+            <div class="flex justify-center space-x-6">
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1567443024551-f3e3a7b9d7cc?w=100" alt="徽章1" class="w-20 h-20 mx-auto mb-2">
+                    <p class="font-semibold">AI新手</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1567443024551-f3e3a7b9d7cc?w=100" alt="徽章2" class="w-20 h-20 mx-auto mb-2">
+                    <p class="font-semibold">实验达人</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1567443024551-f3e3a7b9d7cc?w=100" alt="徽章3" class="w-20 h-20 mx-auto mb-2">
+                    <p class="font-semibold">项目专家</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">AI少年营</h3>
+                    <p class="text-gray-400">为青少年打造的AI学习平台，激发科技兴趣，培养未来人才。</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">首页</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">学习</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">实验</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">项目</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">联系我们</h3>
+                    <p class="text-gray-400">邮箱: contact@aiyouth.com</p>
+                    <p class="text-gray-400">电话: 123-456-7890</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 AI少年营. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
