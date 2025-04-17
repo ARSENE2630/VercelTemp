@@ -6,8 +6,7 @@
       "dest": "/public/index.html",
       "headers": {
         "Cache-Control": "no-cache",
-        "X-Frame-Options": "DENY",
-        "Content-Security-Policy": "default-src 'self'"
+        "X-Frame-Options": "DENY"
       }
     },
      {
@@ -15,8 +14,7 @@
       "dest": "/public/$1/$2.html",
       "headers": {
         "Cache-Control": "no-cache",
-        "X-Frame-Options": "DENY",
-        "Content-Security-Policy": "default-src 'self'; img-src 'self' data:;"
+        "X-Frame-Options": "DENY"
   }
 }
   ],
