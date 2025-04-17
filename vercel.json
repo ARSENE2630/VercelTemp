@@ -10,6 +10,10 @@
         {
             "src": "/",
             "dest": "/test.html"
+        },
+        {
+            "src": "/tmp",
+            "dest": "/tmp/.*"
         }
     ]
 }
