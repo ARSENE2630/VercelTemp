@@ -12,8 +12,12 @@
             "dest": "/test.html"
         },
         {
-            "src": "/tmp/(.*)/(.*)",
-            "dest": "/tmp/$1/$2"
+            "src": "/tmp/(.*)",
+            "dest": "/tmp/$1"
+        },
+        {
+            "src": "/tmp/(.*)/(.*)\\.html",
+            "dest": "/tmp/$1/$2.html"
         }
     ]
 }
