@@ -12,8 +12,8 @@
             "dest": "/test.html"
         },
         {
-            "src": "/tmp",
-            "dest": "/tmp/.*"
+            "src": "/tmp/(.*)",
+            "dest": "/tmp/$1"
         }
     ]
 }
