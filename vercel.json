@@ -11,8 +11,13 @@
       }
     },
     {
-            "src": "/public/(.*)/(.*)\\.html",
-            "dest": "/public/$1/$2.html"
+        "src": "/public/(.*)/(.*)\\.html",
+        "dest": "/public/$1/$2.html",
+        "headers": {
+        "Cache-Control": "public, max-age=3600",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'"
+      }
     }
   ],
   "builds": [
