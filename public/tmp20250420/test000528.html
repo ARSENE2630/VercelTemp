@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MokeCore - AI在线生成UI/UX原型</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: white;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+        }
+        .card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        .ai-button {
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            transition: all 0.3s ease;
+        }
+        .ai-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- 导航栏 -->
+    <nav class="gradient-bg py-6 px-6 border-b border-gray-800">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+                    <span class="font-bold text-white">MC</span>
+                </div>
+                <span class="text-xl font-bold glow-text">MokeCore</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-blue-400">产品</a>
+                <a href="#" class="hover:text-blue-400">功能</a>
+                <a href="#" class="hover:text-blue-400">案例</a>
+                <a href="#" class="hover:text-blue-400">定价</a>
+                <a href="#" class="hover:text-blue-400">文档</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="px-4 py-2 rounded-lg border border-blue-500 hover:bg-blue-500 hover:bg-opacity-20">登录</button>
+                <button class="ai-button px-6 py-2 rounded-lg font-semibold">免费试用</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="gradient-bg py-20 px-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 glow-text">AI驱动的UI/UX原型设计</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">只需简单描述，MokeCore即可为您生成高保真UI/UX原型，让创意瞬间可视化</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+                <button class="ai-button px-8 py-4 rounded-lg font-semibold text-lg mx-auto md:mx-0">立即体验</button>
+                <button class="px-8 py-4 rounded-lg font-semibold text-lg border border-blue-500 hover:bg-blue-500 hover:bg-opacity-20 mx-auto md:mx-0">观看演示</button>
+            </div>
+            <div class="mt-16 relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl opacity-20 blur-3xl"></div>
+                <div class="relative bg-gray-800 bg-opacity-50 rounded-xl p-4 border border-gray-700">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200" alt="AI生成UI示例" class="rounded-lg w-full h-auto shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能展示 -->
+    <section class="py-20 px-6 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 glow-text">核心功能</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 功能1 -->
+                <div class="card p-8 rounded-xl">
+                    <div class="w-16 h-16 rounded-full bg-blue-500 bg-opacity-20 flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">智能生成</h3>
+                    <p class="text-gray-400">通过自然语言描述，AI自动生成高保真UI原型，支持多种设计风格和组件库。</p>
+                </div>
+                <!-- 功能2 -->
+                <div class="card p-8 rounded-xl">
+                    <div class="w-16 h-16 rounded-full bg-purple-500 bg-opacity-20 flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">交互设计</h3>
+                    <p class="text-gray-400">自动生成可交互原型，支持页面跳转、动画效果和用户流程模拟。</p>
+                </div>
+                <!-- 功能3 -->
+                <div class="card p-8 rounded-xl">
+                    <div class="w-16 h-16 rounded-full bg-green-500 bg-opacity-20 flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">个性化定制</h3>
+                    <p class="text-gray-400">根据您的品牌风格和设计规范，自动调整颜色、字体和布局。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI生成演示 -->
+    <section class="py-20 px-6 gradient-bg">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 glow-text">AI生成演示</h2>
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700 mb-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                                </svg>
+                            </div>
+                            <p class="text-gray-300">"创建一个电商App首页，包含商品轮播、分类导航和热门推荐，使用深色主题"</p>
+                        </div>
+                        <button class="ai-button px-4 py-2 rounded-lg text-sm flex items-center ml-11">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            生成
+                        </button>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">自然语言输入</h3>
+                    <p class="text-gray-400 mb-6">只需用简单的语言描述您的需求，AI即可理解并生成符合要求的UI设计。</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-300">支持多种设计风格描述</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-300">理解复杂布局需求</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-300">多轮对话优化设计</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl opacity-20 blur-3xl"></div>
+                        <div class="relative bg-gray-800 bg-opacity-50 rounded-xl p-4 border border-gray-700">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800" alt="AI生成UI示例" class="rounded-lg w-full h-auto shadow-xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 定价 -->
+    <section class="py-20 px-6 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 glow-text">简单透明的定价</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- 免费版 -->
+                <div class="card p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">免费版</h3>
+                    <div class="mb-6">
+                        <span
