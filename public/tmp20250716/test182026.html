@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优车拍 - 汽车拍卖大厅</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-xl font-bold text-blue-600">优车拍</span>
+                <span class="text-gray-600">汽车拍卖大厅</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-gray-600 hover:text-blue-600">首页</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600">拍卖大厅</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600">我的竞拍</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600">帮助中心</a>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">登录/注册</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 拍卖大厅标题 -->
+    <div class="container mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold text-gray-800">汽车拍卖大厅</h1>
+        <p class="text-gray-600 mt-2">精选优质二手车，竞拍价高者得</p>
+    </div>
+
+    <!-- 搜索栏 -->
+    <div class="container mx-auto px-4 py-4 bg-white rounded-lg shadow-md">
+        <div class="flex flex-wrap items-center gap-4">
+            <div class="flex-1">
+                <input type="text" placeholder="搜索品牌、车型或车系" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+            <div>
+                <select class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <option>全部品牌</option>
+                    <option>宝马</option>
+                    <option>奔驰</option>
+                    <option>奥迪</option>
+                </select>
+            </div>
+            <div>
+                <select class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <option>全部价格</option>
+                    <option>5万以下</option>
+                    <option>5-10万</option>
+                    <option>10-20万</option>
+                </select>
+            </div>
+            <div>
+                <button class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">搜索</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 拍卖车辆列表 -->
+    <div class="container mx-auto px-4 py-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 车辆卡片 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <img src="https://source.unsplash.com/random/600x400/?car&w=600&h=400&dpr=2" alt="Car" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800">宝马 5系 2020款</h3>
+                    <p class="text-gray-600 mt-2">里程：3.2万公里 | 上牌：2020年</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-blue-600">¥ 25.8万</span>
+                        <button class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">立即竞拍</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 车辆卡片 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <img src="https://source.unsplash.com/random/600x400/?car,mercedes&w=600&h=400&dpr=2" alt="Car" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800">奔驰 E级 2019款</h3>
+                    <p class="text-gray-600 mt-2">里程：4.5万公里 | 上牌：2019年</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-blue-600">¥ 28.6万</span>
+                        <button class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">立即竞拍</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 车辆卡片 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <img src="https://source.unsplash.com/random/600x400/?car,audi&w=600&h=400&dpr=2" alt="Car" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800">奥迪 A6L 2021款</h3>
+                    <p class="text-gray-600 mt-2">里程：2.1万公里 | 上牌：2021年</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-blue-600">¥ 30.2万</span>
+                        <button class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">立即竞拍</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 分页 -->
+    <div class="container mx-auto px-4 py-6 flex justify-center">
+        <nav class="flex items-center gap-2">
+            <button class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100">上一页</button>
+            <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">1</button>
+            <button class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100">2</button>
+            <button class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100">3</button>
+            <button class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100">下一页</button>
+        </nav>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">关于优车拍</h3>
+                    <p class="text-gray-400">优车拍是国内领先的二手车拍卖平台，致力于
