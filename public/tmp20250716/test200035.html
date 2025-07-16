@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧医疗 - 健康管理平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #f8fafc;
+        }
+        .medical-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(79, 114, 205, 0.1);
+        }
+        .medical-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(79, 114, 205, 0.15);
+        }
+        .nav-active {
+            color: #3b82f6;
+            border-bottom: 3px solid #3b82f6;
+        }
+        .health-data {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        .appointment-btn {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            transition: all 0.2s;
+        }
+        .appointment-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+        }
+        .progress-value {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
+        }
+        /* 自定义滚动条 */
+        .chat-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chat-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-heartbeat text-white text-xl"></i>
+                        </div>
+                        <h1 class="text-xl font-bold text-blue-800 ml-2">智慧医疗</h1>
+                    </div>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#" class="py-2 nav-active font-medium">首页</a>
+                        <a href="#" class="py-2 text-gray-600 hover:text-blue-600">在线问诊</a>
+                        <a href="#" class="py-2 text-gray-600 hover:text-blue-600">预约挂号</a>
+                        <a href="#" class="py-2 text-gray-600 hover:text-blue-600">健康档案</a>
+                        <a href="#" class="py-2 text-gray-600 hover:text-blue-600">药品商城</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative hidden md:block">
+                        <input type="text" placeholder="搜索医生/疾病/药品..." 
+                               class="pl-10 pr-4 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-64">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                    <button class="p-2 text-gray-500 hover:text-blue-600 relative">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </button>
+                    <div class="flex items-center space-x-2 cursor-pointer">
+                        <div class="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="用户头像" class="w-full h-full object-cover">
+                        </div>
+                        <span class="hidden md:inline text-sm font-medium">张女士</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="container mx-auto px-6 py-6">
+        <!-- 健康概览 -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            <!-- 用户信息卡片 -->
+            <div class="bg-white rounded-xl shadow-sm p-6 medical-card">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="用户头像" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold">张女士</h2>
+                        <p class="text-sm text-gray-500">35岁 · 女</p>
+                        <div class="flex items-center mt-1">
+                            <span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded">健康良好</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">会员等级</span>
+                        <span class="text-sm font-medium text-blue-600">黄金会员</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">上次体检</span>
+                        <span class="text-sm">2023-05-15</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">绑定医院</span>
+                        <span class="text-sm">北京协和医院</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 健康数据卡片 -->
+            <div class="bg-white rounded-xl shadow-sm p-6 medical-card">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold">今日健康数据</h2>
+                    <span class="text-xs text-blue-600">更新于10:30</span>
+                    </div>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="text-center">
+                        <div class="health-data w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-heartbeat text-white text-xl"></i>
+                        </div>
+                        <p class="text-sm text-gray-500">心率</p>
+                        <p class="font-bold">72 <span class="text-xs text-gray-400">bpm</span></p>
+                    </div>
+                    <div class="text-center">
+                        <div class="health-data w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-temperature-high text-white text-xl"></i>
+                        </div>
+                        <p class="text-sm text-gray-500">体温</p>
+                        <p class="font-bold">36.5 <span class="text-xs text-gray-400">°C</span></p>
+                    </div>
+                    <div class="text-center">
+                        <div class="health-data w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-walking text-white text-xl"></i>
+                        </div>
+                        <p class="text-sm text-gray-500">步数</p>
+                        <p class="font-bold">5,842 <span class="text-xs text-gray-400">步</span></p>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between text-sm mb-1">
+                        <span class="text-gray-500">今日饮水</span>
+                        <span>1200/2000ml</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-value" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 快速入口卡片 -->
+            <div class="bg-white rounded-xl shadow-sm p-6 medical-card">
+                <h2 class="text-lg font-bold mb-4">快速入口</h2>
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="flex flex-col items-center justify-center p-3 rounded-lg border hover:bg-blue-50 hover:border-blue-200">
+                        <i class="fas fa-comment-medical text-blue-600 text-2xl mb-2"></i>
+                        <span class="text-sm">在线问诊</span>
+                    </button>
+                    <button class="flex flex-col items-center justify-center p-3 rounded-lg border hover:bg-blue-50 hover:border-blue-200">
+                        <i class="fas fa-calendar-check text-blue-600 text-2xl mb-2"></i>
+                        <span class="text-sm">预约挂号</span>
+                    </button>
+                    <button class="flex flex-col items-center justify-center p-3 rounded-lg border hover:bg-blue-50 hover:border-blue-200">
+                        <i class="fas fa-pills text-blue-600 text-2xl mb-2"></i>
+                        <span class="text-sm">药品购买</span>
+                    </button>
+                    <button class="flex flex-col items-center justify-center p-3 rounded-lg border hover:bg-blue-50 hover:border-blue-200">
+                        <i class="fas fa-file-medical text-blue-600 text-2xl mb-2"></i>
+                        <span class="text-sm">健康报告</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 在线问诊 -->
+        <section class="bg-white rounded-xl shadow-sm p-6 mb-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold">在线问诊</h2>
+                <a href="#" class="text-blue-600 text-sm hover:underline">查看全部 ></a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 医生列表 -->
+                <div class="space-y-4">
+                    <div class="flex items-center p-3 rounded-lg border hover:border-blue-300 cursor-pointer">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="医生头像" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-medium">王医生</h3>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">在线</span>
+                            </div>
+                            <p class="text-sm text-gray-500">北京协和医院 · 心内科</p>
+                            <div class="flex items-center mt-1">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">4.8 (126评价)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 rounded-lg border hover:border-blue-300 cursor-pointer">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="医生头像" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-medium">李医生</h3>
+                                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">在线</span>
+                            </div>
+                            <p class="text-sm text-gray-500">北京大学人民医院 · 儿科</p>
+                            <div class="flex items-center mt-1">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">5.0 (89评价)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 问诊聊天窗口 -->
+                <div class="border rounded-lg overflow-hidden">
+                    <div class="bg-blue-600 text-white p-3">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="医生头像" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-medium">王医生</h3>
+                                <p class="text-xs opacity-80">北京协和医院 · 心内科</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-container p-4 h-64 overflow-y-auto bg-gray-50">
+                        <div class="flex mb-4">
+                            <div class="max-w-xs bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-sm">您好，我是王医生，请问有什么可以帮您？</p>
+                                <span class="text-xs text-gray-400 block mt-1">10:30</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-end mb-4">
+                            <div class="max-w-xs bg-blue-100 p-3 rounded-lg shadow-sm">
+                                <p class="text-sm">医生您好，我最近经常感到胸闷，特别是晚上睡觉时</p>
+                                <span class="text-xs text-gray-400 block mt-1">10:32</span>
+                            </div>
+                        </div>
+                        <div class="flex mb-4">
+                            <div class="max-w-xs bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-sm">这种情况持续多久了？有没有伴随其他症状比如心悸或呼吸困难？</p>
+                                <span class="text-xs text-gray-
