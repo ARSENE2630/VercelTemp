@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汽车拍卖大厅</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <header class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">汽车拍卖大厅</h1>
+            <p class="text-gray-600 mt-2">竞拍您心仪的汽车</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 拍卖卡片 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-48 bg-gray-300 flex items-center justify-center">
+                    <span class="text-gray-500">汽车图片</span>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">奔驰 S 级 2022</h2>
+                    <p class="text-gray-600 mt-2">车牌: 京A12345</p>
+                    <p class="text-gray-600">登记日期: 2022-05-10</p>
+                    <p class="text-gray-600">起拍价: ¥500,000</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">进行中</span>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">竞拍</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 拍卖卡片 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-48 bg-gray-300 flex items-center justify-center">
+                    <span class="text-gray-500">汽车图片</span>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">宝马 5 系 2021</h2>
+                    <p class="text-gray-600 mt-2">车牌: 沪B67890</p>
+                    <p class="text-gray-600">登记日期: 2021-08-15</p>
+                    <p class="text-gray-600">起拍价: ¥350,000</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">即将开始</span>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">竞拍</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 拍卖卡片 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-48 bg-gray-300 flex items-center justify-center">
+                    <span class="text-gray-500">汽车图片</span>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">奥迪 A6 2020</h2>
+                    <p class="text-gray-600 mt-2">车牌: 粤C45678</p>
+                    <p class="text-gray-600">登记日期: 2020-11-20</p>
+                    <p class="text-gray-600">起拍价: ¥280,000</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">已结束</span>
+                        <button class="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>竞拍</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">拍卖公告</h2>
+            <ul class="space-y-4">
+                <li class="border-b pb-2">
+                    <h3 class="text-lg font-semibold text-gray-800">广汽本田试驾车辆专场拍卖会</h3>
+                    <p class="text-gray-600 mt-1">拍卖时间: 2024-10-15 10:00</p>
+                    <p class="text-gray-600">拍卖地点: 广州市天河区华穗路263号</p>
+                </li>
+                <li class="border-b pb-2">
+                    <h3 class="text-lg font-semibold text-gray-800">奔驰宝马专场拍卖会</h3>
+                    <p class="text-gray-600 mt-1">拍卖时间: 2024-10-20 14:00</p>
+                    <p class="text-gray-600">拍卖地点: 上海市浦东新区张江高科技园区</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
