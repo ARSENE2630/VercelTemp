@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优车拍拍卖大厅</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-xl font-bold text-blue-600">优车拍</h1>
+                <span class="ml-4 text-gray-600">拍卖大厅</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">登录</button>
+                <button class="px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-50">注册</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 搜索栏 -->
+    <div class="container mx-auto px-4 py-6">
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="flex flex-wrap items-center gap-4">
+                <div class="flex-1">
+                    <input type="text" placeholder="搜索车辆品牌或型号" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <select class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>全部地区</option>
+                        <option>北京</option>
+                        <option>上海</option>
+                        <option>广州</option>
+                    </select>
+                </div>
+                <div>
+                    <select class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>全部品牌</option>
+                        <option>奥迪</option>
+                        <option>宝马</option>
+                        <option>奔驰</option>
+                    </select>
+                </div>
+                <button class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">搜索</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 拍卖列表 -->
+    <div class="container mx-auto px-4 py-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 拍卖卡片 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="h-48 bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-500">车辆图片</span>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">奥迪 A6L 2022款</h2>
+                    <p class="text-gray-600 mt-2">里程：2.3万公里 | 上牌：2022年</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-red-500 font-bold">当前价：¥285,000</span>
+                        <button class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">出价</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 拍卖卡片 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="h-48 bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-500">车辆图片</span>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">宝马 5系 2021款</h2>
+                    <p class="text-gray-600 mt-2">里程：3.5万公里 | 上牌：2021年</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-red-500 font-bold">当前价：¥320,000</span>
+                        <button class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">出价</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 拍卖卡片 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="h-48 bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-500">车辆图片</span>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold">奔驰 E级 2020款</h2>
+                    <p class="text-gray-600 mt-2">里程：4.2万公里 | 上牌：2020年</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-red-500 font-bold">当前价：¥298,000</span>
+                        <button class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">出价</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 分页 -->
+    <div class="container mx-auto px-4 py-6 flex justify-center">
+        <div class="flex space-x-2">
+            <button class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100">上一页</button>
+            <button class="px-4 py-2 bg-blue-600 text-white rounded-md">1</button>
+            <button class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100">2</button>
+            <button class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100">3</button>
+            <button class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100">下一页</button>
+        </div>
+    </div>
+</body>
+</html>
