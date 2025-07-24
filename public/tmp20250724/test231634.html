@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水处理设备图展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .upload-area {
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .upload-area:hover {
+            border-color: #3b82f6;
+            background-color: #f8fafc;
+        }
+        .device-image {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center text-blue-800 mb-8">水处理设备图展示</h1>
+        
+        <!-- 上传区域 -->
+        <div class="mb-8">
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="fileInput" accept="image/*" class="hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+                <p class="mt-2 text-gray-600">点击或拖拽上传设备图片</p>
+                <p class="text-sm text-gray-500">支持 JPG, PNG 格式</p>
+            </div>
+        </div>
+
+        <!-- 设备展示区域 -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-xl font-semibold mb-4">设备展示</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 设备1 -->
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="flex justify-center mb-4">
+                        <img id="deviceImage1" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.1.0&w=300&h=200&dpr=2" alt="水处理设备" class="device-image">
+                    </div>
+                    <h3 class="font-medium text-lg mb-2">RO反渗透设备</h3>
+                    <p class="text-gray-600 mb-2">型号: RO-2023</p>
+                    <p class="text-gray-600">处理能力: 1吨/小时</p>
+                </div>
+                
+                <!-- 设备2 -->
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="flex justify-center mb-4">
+                        <img id="deviceImage2" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.1.0&w=300&h=200&dpr=2" alt="水处理设备" class="device-image">
+                    </div>
+                    <h3 class="font-medium text-lg mb-2">超滤设备</h3>
+                    <p class="text-gray-600 mb-2">型号: UF-2023</p>
+                    <p class="text-gray-600">处理能力: 2吨/小时</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 设备信息表单 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">设备信息</h2>
+            <form>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">设备名称</label>
+                        <input type="text" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">设备型号</label>
+                        <input type="text" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">设备描述</label>
+                    <textarea rows="3" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">保存信息</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 上传功能实现
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const deviceImage1 = document.getElementById('deviceImage1');
+        const deviceImage2 = document.getElementById('deviceImage2');
+        let currentDevice = 1;
+
+        // 点击上传区域触发文件选择
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // 拖拽功能
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('border-blue-500', 'bg-blue-50');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('border-blue-500', 'bg-blue-50');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('border-blue-500', 'bg-blue-50');
+            if (e.dataTransfer.files.length) {
+                handleFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        // 文件选择处理
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length) {
+                handleFile(fileInput.files[0]);
+            }
+        });
+
+        // 处理上传的文件
+        function handleFile(file) {
+            if (!file.type.match('image.*')) {
+                alert('请选择图片文件');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                if (currentDevice === 1) {
+                    deviceImage1.src = e.target.result;
+                    currentDevice = 2;
+                } else {
+                    deviceImage2.src = e.target.result;
+                    currentDevice = 1;
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>
