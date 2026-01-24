@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>营销助手APP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">营销助手</h1>
+            <div class="flex space-x-4">
+                <button class="px-3 py-1 rounded hover:bg-blue-700">登录</button>
+                <button class="px-3 py-1 rounded hover:bg-blue-700">注册</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区 -->
+    <div class="container mx-auto p-4">
+        <!-- 首页概览 -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">营销活动概览</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-semibold">活动总数</h3>
+                    <p class="text-3xl font-bold text-blue-600">12</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-semibold">参与客户</h3>
+                    <p class="text-3xl font-bold text-green-600">245</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-semibold">转化率</h3>
+                    <p class="text-3xl font-bold text-purple-600">18%</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 活动管理 -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">活动管理</h2>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-semibold">最近活动</h3>
+                    <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">创建活动</button>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-b pb-2">
+                        <h4 class="font-medium">夏季促销</h4>
+                        <p class="text-gray-600">2023-06-01 至 2023-06-30</p>
+                    </div>
+                    <div class="border-b pb-2">
+                        <h4 class="font-medium">新品发布</h4>
+                        <p class="text-gray-600">2023-05-15 至 2023-05-30</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 数据分析 -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">数据分析</h2>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <img src="https://images.unsplash.com/photo-1686061593269-420785fb8fa0?ixid=M3w3Nzg5NTl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyMzkxMzl8&ixlib=rb-4.1.0&w=600&h=300&dpr=2" alt="数据分析图表" class="w-full rounded">
+                <p class="mt-2 text-gray-600">最近30天的活动数据趋势</p>
+            </div>
+        </section>
+
+        <!-- 客户管理 -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">客户管理</h2>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-semibold">客户列表</h3>
+                    <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">添加客户</button>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-b pb-2">
+                        <h4 class="font-medium">张三</h4>
+                        <p class="text-gray-600">zhangsan@example.com</p>
+                    </div>
+                    <div class="border-b pb-2">
+                        <h4 class="font-medium">李四</h4>
+                        <p class="text-gray-600">lisi@example.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 底部导航 -->
+    <footer class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 营销助手APP. 保留所有权利。</p>
+        </div>
+    </footer>
+</body>
+</html>
