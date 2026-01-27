@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧销售助手 - 汽车门店AI助手</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        accent: '#722ED1',
+                        success: '#52C41A',
+                        warning: '#FAAD14',
+                        danger: '#FF4D4F',
+                        dark: '#1D2129',
+                        light: '#F2F3F5'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05);
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 text-dark">
+    <!-- 移动端框架 -->
+    <div class="w-full max-w-md mx-auto bg-white min-h-screen shadow-lg relative overflow-hidden">
+        <!-- 顶部状态栏 -->
+        <div class="bg-primary text-white px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-car text-xl"></i>
+                <h1 class="text-lg font-semibold">智慧销售助手</h1>
+            </div>
+            <div class="flex items-center space-x-3">
+                <i class="fa fa-bell-o text-lg"></i>
+                <img src="https://ui-avatars.com/api/?name=张&background=random&color=fff" alt="用户头像" class="w-8 h-8 rounded-full">
+            </div>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <div class="p-4">
+            <!-- 欢迎信息 -->
+            <div class="mb-6">
+                <p class="text-gray-600">欢迎回来，</p>
+                <h2 class="text-xl font-bold text-shadow">张销售</h2>
+                <p class="text-sm text-gray-500 mt-1">今日已有 <span class="text-primary font-semibold">3</span> 位客户预约</p>
+            </div>
+
+            <!-- 数据概览卡片 -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="bg-white rounded-xl p-4 shadow-sm card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500">本月销售额</p>
+                            <p class="text-xl font-bold mt-1">¥128.5万</p>
+                        </div>
+                        <div class="bg-primary/10 p-2 rounded-lg">
+                            <i class="fa fa-line-chart text-primary text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex items-center">
+                        <span class="text-success text-sm flex items-center">
+                            <i class="fa fa-arrow-up mr-1"></i>12.5%
+                        </span>
+                        <span class="text-xs text-gray-500 ml-2">较上月</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-4 shadow-sm card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500">潜在客户</p>
+                            <p class="text-xl font-bold mt-1">86</p>
+                        </div>
+                        <div class="bg-secondary/10 p-2 rounded-lg">
+                            <i class="fa fa-users text-secondary text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex items-center">
+                        <span class="text-success text-sm flex items-center">
+                            <i class="fa fa-arrow-up mr-1"></i>8.2%
+                        </span>
+                        <span class="text-xs text-gray-500 ml-2">较上月</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 快速操作区 -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-3">快速操作</h3>
+                <div class="grid grid-cols-4 gap-3">
+                    <div class="flex flex-col items-center card-hover p-2 rounded-lg bg-white shadow-sm">
+                        <div class="bg-primary/10 p-2 rounded-full mb-2">
+                            <i class="fa fa-user-plus text-primary"></i>
+                        </div>
+                        <span class="text-xs text-center">添加客户</span>
+                    </div>
+                    <div class="flex flex-col items-center card-hover p-2 rounded-lg bg-white shadow-sm">
+                        <div class="bg-secondary/10 p-2 rounded-full mb-2">
+                            <i class="fa fa-calendar-plus-o text-secondary"></i>
+                        </div>
+                        <span class="text-xs text-center">预约试驾</span>
+                    </div>
+                    <div class="flex flex-col items-center card-hover p-2 rounded-lg bg-white shadow-sm">
+                        <div class="bg-accent/10 p-2 rounded-full mb-2">
+                            <i class="fa fa-comments-o text-accent"></i>
+                        </div>
+                        <span class="text-xs text-center">AI咨询</span>
+                    </div>
+                    <div class="flex flex-col items-center card-hover p-2 rounded-lg bg-white shadow-sm">
+                        <div class="bg-warning/10 p-2 rounded-full mb-2">
+                            <i class="fa fa-file-text-o text-warning"></i>
+                        </div>
+                        <span class="text-xs text-center">生成报告</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI助手卡片 -->
+            <div class="mb-6">
+                <div class="bg-gradient-to-r from-primary to-accent rounded-xl p-4 text-white relative overflow-hidden">
+                    <div class="absolute right-0 top-0 opacity-20">
+                        <i class="fa fa-robot text-6xl"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-lg font-semibold mb-2">AI销售助手</h3>
+                        <p class="text-sm opacity-90 mb-4">智能分析客户需求，提供专业销售建议</p>
+                        <button class="bg-white text-primary px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 shadow-md">
+                            <i class="fa fa-comments"></i>
+                            <span>开始对话</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 热门车型推荐 -->
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg font-semibold">热门车型</h3>
+                    <a href="#" class="text-primary text-sm font-medium">查看全部</a>
+                </div>
+                <div class="overflow-x-auto scrollbar-hide pb-2">
+                    <div class="flex space-x-3">
+                        <!-- 车型卡片1 -->
+                        <div class="w-48 bg-white rounded-xl shadow-sm overflow-hidden card-hover">
+                            <img src="https://images.unsplash.com/photo-1763180785425-46ea06a0fc50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg5NTl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk1MzM1MDB8&ixlib=rb-4.1.0&q=80&w=400&h=200&dpr=2" alt="车型图片" class="w-full h-28 object-cover">
+                            <div class="p-3">
+                                <h4 class="font-semibold">特斯拉 Model 3</h4>
+                                <p class="text-xs text-gray-500 mt-1">续航605km | 加速3.3s</p>
+                                <p class="text-primary font-bold mt-2">¥23.19万起</p>
+                            </div>
+                        </div>
+                        <!-- 车型卡片2 -->
+                        <div class="w-48 bg-white rounded-xl shadow-sm overflow-hidden card-hover">
+                            <img src="https://images.unsplash.com/photo-1763180785425-46ea06a0fc50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg5NTl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk1MzM1MDB8&ixlib=rb-4.1.0&q=80&w=400&h=200&dpr=2" alt="车型图片" class="w-full h-28 object-cover">
+                            <div class="p-3">
+                                <h4 class="font-semibold">比亚迪 汉EV</h4>
+                                <p class="text-xs text-gray-500 mt-1">续航715km | 加速3.9s</p>
+                                <p class="text-primary font-bold mt-2">¥21.58万起</p>
+                            </div>
+                        </div>
+                        <!-- 车型卡片3 -->
+                        <div class="w-48 bg-white rounded-xl shadow-sm overflow-hidden card-hover">
+                            <img src="https://images.unsplash.com/photo-1763180785425-46ea06a0fc50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg5NTl8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk1MzM1MDB8&ixlib=rb-4.1.0&q=80&w=400&h=200&dpr=2" alt="车型图片" class="w-full h-28 object-cover">
+                            <div class="p-3">
+                                <h4 class="font-semibold">小鹏 P7</h4>
+                                <p class="text-xs text-gray-500 mt-1">续航706km | 加速4.3s</p>
+                                <p class="text-primary font-bold mt-2">¥20.99万起</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 客户跟进提醒 -->
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg font-semibold">待跟进客户</h3>
+                    <a href="#" class="text-primary text-sm font-medium">全部5人</a>
+                </div>
+                <div class="space-y-3">
+                    <!-- 客户1 -->
+                    <div class="bg-white rounded-lg p-3 shadow-sm flex items-center card-hover">
+                        <img src="https://ui-avatars.com/api/?name=李&background=random&color=fff" alt="客户头像" class="w-10 h-10 rounded-full mr-3">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-medium">李先生</h4>
+                                <span class="text-xs bg-warning/20 text-warning px-2 py-0.5 rounded">高优先级</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">意向车型: 特斯拉 Model Y</p>
+                            <p class="text-xs text-gray-400 mt-0.5">上次沟通: 2025-06-15</p>
+                        </div>
+                    </div>
+                    <!-- 客户2 -->
+                    <div class="bg-white rounded-lg p-3 shadow-sm flex items-center card-hover">
+                        <img src="https://ui-avatars.com/api/?name=王&background=random&color=fff" alt="客户头像" class="w-10 h-10 rounded-full mr-3">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-medium">王女士</h4>
+                                <span class="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded">中优先级</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">意向车型: 比亚迪 唐</p>
+                            <p class="text-xs text-gray-400 mt-0.5">上次沟通: 2025-06-14</p>
+                        </div>
+                    </div>
+                    <!-- 客户3 -->
+                    <div class="bg-white rounded-lg p-3 shadow-sm flex items-center card-hover">
+                        <img src="https://ui-avatars.com/api/?name=赵&background=random&color=fff" alt="客户头像" class="w-10 h-10 rounded-full mr-3">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-medium">赵先生</h4>
+                                <span class="text-xs bg-gray/20 text-gray px-2 py-0.5 rounded">普通</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">意向车型: 小鹏 G9</p>
+                            <p class="text-xs text-gray-400 mt-0.5">上次沟通: 2025-06-12</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 销售数据分析 -->
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg font-semibold">销售数据分析</h3>
+                    <select class="text-sm border border-gray-300 rounded px-2 py-1">
+                        <option>近30天</option>
+                        <option>近7天</option>
+                        <option>本月</option>
+                        <option>本季度</option>
+                    </select>
+                </div>
+                <div class="bg-white rounded-xl p-4 shadow-sm">
+                    <canvas id="salesChart" height="180"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <div class="bg-white border-t border-gray-200 fixed bottom-0 left-0 right-0 max-w-md mx-auto z-50">
+            <div class="grid grid-cols-5 p-2">
+                <a href="#" class="flex flex-col items-center py-2 text-primary">
