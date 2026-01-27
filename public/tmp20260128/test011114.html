@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧销售助手 - 汽车门店AI助手</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E40AF',
+            secondary: '#3B82F6',
+            accent: '#F59E0B',
+            dark: '#1E293B',
+            light: '#F8FAFC'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .chat-bubble {
+        @apply rounded-lg px-4 py-3 max-w-[80%];
+      }
+      .chat-bubble-user {
+        @apply bg-primary text-white ml-auto;
+      }
+      .chat-bubble-ai {
+        @apply bg-gray-100 text-gray-800 mr-auto;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+  <!-- 底部导航栏 -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-50">
+    <div class="flex justify-around items-center h-16">
+      <button class="flex flex-col items-center text-primary">
+        <i class="fa fa-home text-xl"></i>
+        <span class="text-xs mt-1">首页</span>
+      </button>
+      <button class="flex flex-col items-center text-gray-500">
+        <i class="fa fa-users text-xl"></i>
+        <span class="text-xs mt-1">客户</span>
+      </button>
+      <button class="flex flex-col items-center text-gray-500">
+        <i class="fa fa-car text-xl"></i>
+        <span class="text-xs mt-1">车辆</span>
+      </button>
+      <button class="flex flex-col items-center text-gray-500">
+        <i class="fa fa-bar-chart text-xl"></i>
+        <span class="text-xs mt-1">数据</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 主内容区域 -->
+  <main class="pb-20 pt-4">
+    <!-- 头部信息 -->
+    <header class="px-4 mb-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark">智慧销售助手</h1>
+          <p class="text-gray-600">欢迎回来，销售顾问</p>
+        </div>
+        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+          <i class="fa fa-user text-white"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- 数据概览卡片 -->
+    <section class="px-4 mb-6">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-white rounded-xl shadow-md p-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">今日接待</p>
+              <h3 class="text-2xl font-bold mt-1">12</h3>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+              <i class="fa fa-users text-primary"></i>
+            </div>
+          </div>
+          <div class="mt-3 text-xs text-green-600 flex items-center">
+            <i class="fa fa-arrow-up mr-1"></i>
+            <span>较昨日 +2</span>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md p-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">潜在客户</p>
+              <h3 class="text-2xl font-bold mt-1">48</h3>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center">
+              <i class="fa fa-user-plus text-accent"></i>
+            </div>
+          </div>
+          <div class="mt-3 text-xs text-green-600 flex items-center">
+            <i class="fa fa-arrow-up mr-1"></i>
+            <span>较上周 +8</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI助手聊天界面 -->
+    <section class="px-4 mb-6">
