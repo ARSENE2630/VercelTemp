@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI汽车销售助手</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .car-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .message-bubble {
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .typing-indicator {
+            display: inline-flex;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            gap: 6px;
+        }
+        
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+        
+        .typing-indicator span:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3);
+        }
+        
+        .chat-input:focus {
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+        }
+        
+        .nav-item.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .car-image {
+            transition: transform 0.3s ease;
+        }
+        
+        .car-card:hover .car-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-500 to-indigo-600">
+    <!-- 顶部导航 -->
+    <nav class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center space-x-2">
+                        <i class="fas fa-robot text-2xl text-purple-600"></i>
+                        <span class="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">AI汽车助手</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-600 hover:text-purple-600 transition-colors">
+                        <i class="fas fa-bell text-xl"></i>
+                    </button>
+                    <button class="p-2 text-gray-600 hover:text-purple-600 transition-colors">
+                        <i class="fas fa-user-circle text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 欢迎区域 -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-robot text-3xl text-white"></i>
+            </div>
+            <h1 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+                欢迎使用AI汽车销售助手
+            </h1>
+            <p class="text-gray-600 text-lg mb-6 max-w-2xl mx-auto">
+                我是您的智能汽车顾问，能帮您解答关于汽车购买、贷款、保险等所有问题。告诉我您的需求吧！
+            </p>
+            <button class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                开始对话 <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+
+        <!-- 功能特色 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-car text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">车型推荐</h3>
+                <p class="text-gray-600">根据您的预算和需求，AI智能匹配最适合的车型</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-calculator text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">价格计算</h3>
+                <p class="text-gray-600">实时计算购车总成本、贷款方案和月供</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-2xl transition-all">
+                <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-shield-alt text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">保险服务</h3>
+                <p class="text-gray-600">智能推荐最优保险方案，保障您的驾驶安全</p>
+            </div>
+        </div>
+
+        <!-- 推荐车型 -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-star text-yellow-500 mr-3"></i> 热门推荐车型
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative h-48 bg-gradient-to-br from-blue-500 to-purple-600">
+                        <img src="https://images.unsplash.com/photo-1635618688300-97415a72b627?w=300&h=200&dpr=2" alt="SUV车型" class="w-full h-full object-cover car-image">
+                        <span class="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">热销</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">豪华SUV 2024款</h3>
+                        <p class="text-gray-600 mb-4">全景天窗·智能驾驶·四驱系统</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold price-tag text-white px-3 py-1 rounded-lg">¥38.8万</div>
+                            <button class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all">
+                                <i class="fas fa-heart mr-2"></i> 对比
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative h-48 bg-gradient-to-br from-green-500 to-teal-600">
+                        <img src="https://images.unsplash.com/photo-1635618688300-97415a72b627?w=300&h=200&dpr=2" alt="电动车" class="w-full h-full object-cover car-image">
+                        <span class="absolute top-3 right-3 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">新能源</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">纯电动轿车 2024款</h3>
+                        <p class="text-gray-600 mb-4">续航600km·快充技术·智能座舱</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold price-tag text-white px-3 py-1 rounded-lg">¥29.9万</div>
+                            <button class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all">
+                                <i class="fas fa-heart mr-2"></i> 对比
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative h-48 bg-gradient-to-br from-orange-500 to-red-600">
+                        <img src="https://images.unsplash.com/photo-1635618688300-97415a72b627?w=300&h=200&dpr=2" alt="运动轿车" class="w-full h-full object-cover car-image">
+                        <span class="absolute top-3 right-3 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">性能</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">运动轿车 2024款</h3>
+                        <p class="text-gray-600 mb-4">2.0T动力·运动悬挂·智能互联</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold price-tag text-white px-3 py-1 rounded-lg">¥25.8万</div>
+                            <button class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all">
+                                <i class="fas fa-heart mr-2"></i> 对比
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI聊天界面 -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-comments text-purple-500 mr-3"></i> 与AI助手聊天
+            </h2>
+            <div class="bg-gray-50 rounded-xl p-6 mb-6 max-h-96 overflow-y-auto">
+                <div class="space-y-4">
+                    <!-- AI消息 -->
+                    <div class="message-bubble">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-robot text-white"></i>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 shadow-sm max-w-2xl">
+                                <p class="text-gray-800">您好！我是您的AI汽车销售助手。请问您在找什么样的车呢？是想要SUV、轿车还是电动车？</p>
+                                <div class="text-sm text-gray-500 mt-2">刚刚</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 用户消息 -->
+                    <div class="message-bubble flex justify-end">
+                        <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg p-4 shadow-sm max-w-2xl">
+                            <p class="text-white">我想要一辆价格在30万左右的SUV，适合家庭使用</p>
+                            <div class="text-sm text-white/70 mt-2">刚刚</div>
+                        </div>
+                    </div>
+
+                    <!-- AI回复 -->
+                    <div class="message-bubble">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-robot text-white"></i>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 shadow-sm max-w-2xl">
+                                <p class="text-gray-800">好的，为您推荐以下30万左右的家庭SUV：</p>
+                                <ul class="mt-3 space-y-2 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                                        <span><strong>豪华SUV 2024款</strong> - 38.8万，7座空间，全景天窗</span>
+                                    </li
